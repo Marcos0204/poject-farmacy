@@ -1,0 +1,32 @@
+
+
+.container-form {
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 380px;
+    margin:  30px auto;
+    padding: 40px 20px 0 ;
+}
+
+.container-form > input {
+    padding: 6px 8px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    border-radius: 7px;
+}
+.container-form > input:focus {
+    outline: none;
+}
+
+.container-form > select {
+    padding: 6px 8px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    border-radius: 7px;
+}
+.container-form > select:focus {
+    outline: none;
+}
