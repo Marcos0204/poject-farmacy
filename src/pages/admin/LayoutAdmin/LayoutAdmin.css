@@ -5,12 +5,31 @@
     display: flex;
 }
 
+
+
 .layout-nav {
     
     height: 100%;
     width: 300px;
-
 }
+.layout-nav  .container-logo{
+    height: 80px;
+    width: 300px;
+    padding-left: 36px;
+    border-bottom: 1px solid #00000047;
+    display: flex;
+    
+}
+
+.layout-nav > div > img {
+    width: 150px;
+}
+
+
+
+
+
+
 
 .layout-main {
     background-color: rgb(0, 255, 136);
