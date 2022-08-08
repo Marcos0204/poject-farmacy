@@ -1,0 +1,19 @@
+.container-layout {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.layout-nav {
+    
+    height: 100%;
+    width: 300px;
+
+}
+
+.layout-main {
+    background-color: rgb(0, 255, 136);
+    height: 100%;
+    width: 100%;
+}
