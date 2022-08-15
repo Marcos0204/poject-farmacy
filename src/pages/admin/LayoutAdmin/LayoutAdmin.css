@@ -12,7 +12,8 @@
     height: 100%;
     width: 300px;
 }
-.layout-nav  .container-logo{
+
+.layout-nav > .container-logo{
     height: 80px;
     width: 300px;
     padding-left: 36px;
@@ -24,6 +25,28 @@
 .layout-nav > div > img {
     width: 150px;
 }
+
+
+
+.nav-list {
+    padding: 20px;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+
+
+.nav-list-item:hover {
+    cursor: pointer;
+    border-bottom: 1px solid rgba(4, 4, 24, 0.63);
+    display: inline;
+}
+
+
 
 
 

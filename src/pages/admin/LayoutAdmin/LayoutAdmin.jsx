@@ -10,12 +10,20 @@ const LayoutAdmin = ({children}) => {
         <div className='container-logo'>
           <img src={Logo} alt='logo' />
         </div>
-        <ul>
-
+        <ul className='nav-list'>
+          <li className='nav-list-item'>
+            Medicamentos
+          </li>
+          <li className='nav-list-item'>
+            Belleza
+          </li>
+          <li className='nav-list-item'>
+            Limpieza
+          </li>
         </ul>
       </div>
       <div className='layout-main'>
-        <h2>fsdfsdfsdf</h2>
+        <h2>tablas</h2>
       </div>
       
     </div>
