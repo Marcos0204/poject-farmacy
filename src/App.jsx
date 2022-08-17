@@ -6,6 +6,7 @@ import AppProvider from './context/AppProvider';
 
 function App() {
 
+  console.log('hola')
 
   return (
     <AppProvider>
