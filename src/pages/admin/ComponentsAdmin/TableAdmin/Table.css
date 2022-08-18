@@ -19,6 +19,23 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: rgba(29, 20, 63, 0.863);
     color: white;
+  }
+
+  .table-img {
+    max-width: 30px;
+  }
+
+  .btn-edit {
+    text-align: center;
+    font-size: 22px;
+    color: rgb(15, 170, 15);
+    cursor: pointer;
+  }
+  .btn-delete {
+    text-align: center;
+    font-size: 22px;
+    color: rgb(219, 9, 9);
+    cursor: pointer;
   }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { AppContext } from "./AppContext";
 import { appFirebase } from '../firebase';
@@ -7,31 +7,32 @@ import { appFirebase } from '../firebase';
 const db = getFirestore(appFirebase)
 
 
-const AppProvider = ({children}) => {
+const AppProvider = ({ children }) => {
 
-    const [ isAuth, setIsAuth ] = useState(false || localStorage.getItem('isAuth') )
-    const [ user, setUser ] = useState([])
-    const [ allData, SetAllData ] = useState([])
-    const listData = [];
-   
+    const [isAuth, setIsAuth] = useState(false || localStorage.getItem('isAuth'))
+    const [user, setUser] = useState([])
+    const [allData, setAllData] = useState([])
+    const [medicinesData, setMedicinesData] = useState([])
+
+    const list = []
 
     useEffect(() => {
-        
-        
+
+
         const getData = async () => {
-            const querySnapshot = await getDocs(collection(db, "products"));
-            querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            listData.push(doc.data())
-            });
+            const querySnapshot = await (await getDocs(collection(db, "products"))).docs;
+            const data = querySnapshot.map(d => d.data())
+            setAllData(data)
         }
         getData()
-        
-    }, [] )
-    console.log(allData)
+
+       
+
+    }, [])
 
 
-////////////////////fruncion para iniciar sesion
+
+    ////////////////////fruncion para iniciar sesion
     const Login = (item) => {
         localStorage.setItem('isAuth', true)
         setIsAuth(true);
@@ -39,15 +40,39 @@ const AppProvider = ({children}) => {
 
     }
 
+    //////funcion para data medicamentos
+
+    const dataMedicices = useMemo(() => {
+        
+        return allData && allData.filter(item => {
+            
+            return item.category === 'medicina'
+        })
+    }, [allData])
+
+
+    //////////////DELETE ITEM
+
+    const deleteItem = (id) =>{
+        const array = allData.filter(item => {
+            
+            return item.id !== id
+        })
+        setAllData(array)
+    }
+
 
     return (
         <AppContext.Provider
             value={{
-                isAuth : isAuth,
+                isAuth: isAuth,
                 user: user,
-                Login : Login,
-                listData: listData
-                
+                allData: allData,
+                Login: Login,
+                deleteItem: deleteItem
+
+
+
             }}
         >
             {children}

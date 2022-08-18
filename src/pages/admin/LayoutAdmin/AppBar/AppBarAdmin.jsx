@@ -40,19 +40,6 @@ const AppBarAdmin = () => {
       <Div>
         <ImageLogo src={Logo} atl='logo' />
 
-        <InputSerch>
-          <input 
-            type='text'
-            placeholder='Buscar...'
-            value= {Search}
-            onChange= { e => SetSearch(e.target.value)}
-
-          />
-          <IconDelete onClick= {() => SetSearch('')} > X</IconDelete>
-          <IconSearch onClick={handleSearch} />
-        </InputSerch>
-
-
         <MobileIcon 
             onClick={haledClick}
         >

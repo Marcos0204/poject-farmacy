@@ -1,5 +1,5 @@
 import React from 'react'
-import AppBarAdmin from './AppBar/AppBarAdmin'
+import { Link } from 'react-router-dom'
 import './layoutAdmin.css'
 import Logo from '../../../img/logo.jpg'
 
@@ -12,13 +12,14 @@ const LayoutAdmin = ({children}) => {
         </div>
         <ul className='nav-list'>
           <li className='nav-list-item'>
-            Medicamentos
+            <Link to={'/admin/medicinas'}>
+              Medicamentos
+            </Link>
           </li>
           <li className='nav-list-item'>
-            Belleza
-          </li>
-          <li className='nav-list-item'>
-            Limpieza
+            <Link to={'/admin/nuevo-Producto'}>
+               Nuevo Producto
+            </Link>
           </li>
         </ul>
       </div>

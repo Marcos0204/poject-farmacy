@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useContext} from 'react'
 import './Table.css'
+import { BiEditAlt } from "react-icons/bi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { AppContext } from '../../../../context/AppContext';
 
 
-const TableAdmin = () => {
+
+const TableAdmin = ({data}) => {
+    const {deleteItem} = useContext(AppContext)
+
+    const deleteItemID = (id) => {
+        console.log('eliminando', id)
+        deleteItem(id)
+    }
   return (
     <div>
       <table id="customers">
@@ -18,16 +28,18 @@ const TableAdmin = () => {
                 </tr>
             </thead>
             {
-                [1,2,3,4,5,6,7].map((item, index) => {
+                data.map((item, index) => {
 
                     return (
-                        <tbody  key={item}>    
+                        <tbody  key={item.id}>    
                             <tr>
-                                <td>atamel </td>
-                                <td>12 bs</td>
-                                <td>imagen</td>
-                                <td>E </td>
-                                <td>X</td>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                                <td><img src={item.url} className='table-img' /></td>
+                                <td className='btn-edit' ><BiEditAlt/> </td>
+                                <td className='btn-delete' 
+                                    onClick={() => deleteItemID(item.id)}
+                                ><RiDeleteBin6Line/></td>
                                 <td>Button</td>
                             </tr>
                         </tbody>

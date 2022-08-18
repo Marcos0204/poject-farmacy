@@ -1,5 +1,5 @@
 import React from 'react'
-import CardList from '../cardList/CardList'
+import CardList from '../ComponentsAdmin/cardList/CardList'
 
 const HomeAdmin = () => {
   return (
