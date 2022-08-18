@@ -11,17 +11,25 @@ const AppProvider = ({children}) => {
 
     const [ isAuth, setIsAuth ] = useState(false || localStorage.getItem('isAuth') )
     const [ user, setUser ] = useState([])
+    const [ allData, SetAllData ] = useState([])
+    const listData = [];
+   
 
     useEffect(() => {
+        
+        
         const getData = async () => {
             const querySnapshot = await getDocs(collection(db, "products"));
             querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            listData.push(doc.data())
             });
         }
         getData()
-    }, [])
+        
+    }, [] )
+    console.log(allData)
+
 
 ////////////////////fruncion para iniciar sesion
     const Login = (item) => {
@@ -38,6 +46,7 @@ const AppProvider = ({children}) => {
                 isAuth : isAuth,
                 user: user,
                 Login : Login,
+                listData: listData
                 
             }}
         >

@@ -11,6 +11,7 @@ import NewProductoAdmin from '../pages/admin/NewProductAdmin/NewProductoAdmin';
 
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoutes';
+import MedicinesAdmin from '../pages/admin/MedicinesAdmin/MedicinesAdmin';
 
 
 
@@ -53,6 +54,11 @@ const routes = () => {
           <Route path="/admin/nuevo-Producto" element={
             <PrivateRoute>
                 <NewProductoAdmin />        
+            </PrivateRoute> 
+          } />
+          <Route path="/admin/medicinas" element={
+            <PrivateRoute>
+                <MedicinesAdmin />        
             </PrivateRoute> 
           } />
           

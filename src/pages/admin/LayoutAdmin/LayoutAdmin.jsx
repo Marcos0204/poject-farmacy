@@ -24,6 +24,7 @@ const LayoutAdmin = ({children}) => {
       </div>
       <div className='layout-main'>
         <h2>tablas</h2>
+        {children}
       </div>
       
     </div>

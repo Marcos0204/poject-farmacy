@@ -13,7 +13,6 @@ const Login = () => {
   const [ password, setPassword ] = useState('')
 
   const { isAuth, Login } = useContext(AppContext)
-  console.log(isAuth)
 
 
 
@@ -24,8 +23,6 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         Login(user)
-        console.log(isAuth)
-
         // ...
       })
       .catch((error) => {
